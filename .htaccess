@@ -1,0 +1,4 @@
+php_flag display_errors On
+php_value error_reporting 2147483647
+php_flag log_errors On
+php_value error_log ./data/log/php.log
