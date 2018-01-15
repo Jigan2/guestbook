@@ -1,0 +1,50 @@
+<?php defined('PHPSecurity') or exit('Access Invalid!'); ?>
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title><?php echo $output['html_title'];?></title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="<?php echo TEMPLATES_URL;?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo TEMPLATES_URL;?>/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo TEMPLATES_URL;?>/css/style.css"/>
+    <script type="text/javascript" src="<?php echo SITE_URL;?>/data/resource/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="wrapper">
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item--current"><a class="nav__link" href="/">Гостевая книга</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="msg">
+		    <?php if ($output['msg_type'] == 'error') { ?>
+                <i class="fa fa-exclamation-triangle" style="color: #39C;" aria-hidden="true"></i>
+		    <?php } else { ?>
+                <i class="fa fa-check-square" style=" color: #099;" aria-hidden="true"></i>
+		    <?php } ?>
+		    <?php require_once($tpl_file); ?>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer__copyright">
+            &copy; Все права защищены <a class="footer__link" href="/">Site</a>
+        </div>
+    </footer>
+</div>
+<script type="text/javascript">
+	<?php if (!empty($output['url'])){ ?>
+        window.setTimeout("javascript:location.href = '<?php echo $output['url'];?>'", <?php echo $time;?>);
+	<?php } else { ?>
+        window.setTimeout("javascript:history.back()", <?php echo $time;?>);
+	<?php } ?>
+</script>
+</body>
+</html>

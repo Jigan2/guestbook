@@ -1,0 +1,146 @@
+.form {
+
+  @media (max-width: 800px) {
+    &__message {
+      padding: 0 15px 0 15px;
+    }
+  }
+
+  .btn-submit {
+    border-radius: 5px;
+    background: #37c0fb;
+    color: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:hover {
+      color: #fff;
+      background: #0790cc;
+    }
+  }
+
+  &__add_wrapper {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+  }
+
+  &__captcha {
+    float: left;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__code {
+    background-color: #ffffff;
+    width: 114px;
+    height: 34px;
+    border: 1px solid #ccc;
+    position: absolute;
+    z-index: 9;
+    top: -40px;
+    left: 0;
+    display: none;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.2);
+
+    i {
+      display: block;
+      opacity: 0.5;
+    }
+  }
+
+  &__code_arrow {
+    -moz-transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    width: .75em;
+    height: .75em;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -.5em;
+    left: 50%;
+    margin-left: -.375em;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+  }
+
+  &__code_img {
+    overflow: hidden;
+    height: 34px;
+    background-color: #fff;
+    position: relative;
+
+    img {
+      width: 90px;
+      height: 26px;
+      position: absolute;
+      z-index: 1;
+      top: 4px;
+      left: 4px;
+    }
+  }
+
+  &__code_close {
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    right: 4px;
+    color: #999;
+    font-size: 12px;
+
+    &:hover i {
+      opacity: 1;
+    }
+  }
+
+  &__code_change {
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    position: absolute;
+    z-index: 1;
+    bottom: 4px;
+    right: 4px;
+    color: #999;
+    font-size: 11px;
+
+    &:hover i {
+      opacity: 1;
+    }
+  }
+
+  &__loading {
+    background-image: url(../images/loading.gif);
+    background-size: 16px 16px;
+    background-position: 0 0;
+    text-decoration: none!important;
+    vertical-align: top;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  input.error {
+    border-color: #ED5564;
+  }
+
+  label.error {
+    font-size: 12px;
+    font-weight: normal;
+    color: #ED5564;
+    margin-left: 5px;
+    margin-bottom: 0;
+
+    i {
+      margin-right: 5px;
+    }
+  }
+}

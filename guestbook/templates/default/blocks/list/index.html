@@ -1,0 +1,58 @@
+<?php defined('PHPSecurity') or exit('Access Invalid!'); ?>
+<section class="content list">
+    <h2 class="content__title">Гостевая книга</h2>
+    <p class="content__desc">Всего сообщений: <?php echo $output['count_message'];?></p>
+    <div class="list__body">
+        <?php if (!empty($output['messages'])) { ?>
+            <table class="list__table">
+                <thead>
+                    <tr>
+                        <th class="sort w100 bl">
+                            <a href="<?php echo ((isset($_GET['order']) && $_GET['order'] == '2') && (isset($_GET['key']) && $_GET['key'] == '1')) ? replaceParam(array('key' => '1', 'order' => '1')) : replaceParam(array('key' => '1', 'order' => '2')); ?>" <?php if(isset($_GET['key']) && $_GET['key'] == '1') { ?>class="selected <?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php echo ((isset($_GET['order']) && $_GET['order'] == '2') && (isset($_GET['key']) && $_GET['key'] == '1')) ? 'Сортировать по возрастанию' : 'Сортировать по убыванию'; ?>">Имя<i></i></a>
+                        </th>
+                        <th class="sort w100">
+                            <a href="<?php echo ((isset($_GET['order']) && $_GET['order'] == '2') && (isset($_GET['key']) && $_GET['key'] == '2')) ? replaceParam(array('key' => '2', 'order' => '1')) : replaceParam(array('key' => '2', 'order' => '2')); ?>" <?php if(isset($_GET['key']) && $_GET['key'] == '2') { ?>class="selected <?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php echo ((isset($_GET['order']) && $_GET['order'] == '2') && (isset($_GET['key']) && $_GET['key'] == '2')) ? 'Сортировать по возрастанию' : 'Сортировать по убыванию'; ?>">Email<i></i></a>
+                        </th>
+                        <th class="sort w100">
+                            <a href="<?php echo ((isset($_GET['order']) && $_GET['order'] == '2') && (isset($_GET['key']) && $_GET['key'] == '3')) ? replaceParam(array('key' => '3', 'order' => '1')) : replaceParam(array('key' => '3', 'order' => '2')); ?>" <?php if(isset($_GET['key']) && $_GET['key'] == '3') { ?>class="selected <?php echo $_GET['order'] == 1 ? 'asc' : 'desc';?>"<?php }?> title="<?php echo ((isset($_GET['order']) && $_GET['order'] == '2') && (isset($_GET['key']) && $_GET['key'] == '3')) ? 'Сортировать по возрастанию' : 'Сортировать по убыванию'; ?>">Дата<i></i></a>
+                        </th>
+                        <th class="w100 br">Сайт</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($output['messages'] as $message) { ?>
+                        <tr>
+                            <td class="td bl"><?php echo $message['user_name'];?></td>
+                            <td class="td"><?php echo $message['user_email'];?></td>
+                            <td class="td"><?php echo date("d.m.Y H:i:s", $message['addtime']);?></td>
+                            <td class="td br"><noindex><a target="_blank" rel="nofollow" href="<?php echo $message['homepage'];?>"><?php echo $message['homepage'];?></a></noindex></td>
+                        </tr>
+                        <tr class="list__message">
+                            <td class="td" colspan="20"><?php echo htmlspecialchars($message['message']);?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+                <tfoot>
+                    <?php if ($output['count_message'] > 0 && $output['total_page'] > 1) { ?>
+                        <tr>
+                            <td colspan="20"><div class="list__pagination"><?php echo $output['show_page'];?></div></td>
+                        </tr>
+                    <?php } ?>
+                </tfoot>
+            </table>
+        <?php } else { ?>
+            <table class="list__table">
+                <tbody>
+                    <tr>
+                        <td colspan="20">
+                            <div class="list__warning">
+                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                <span>В данный момент нет сообщений, Вы можете стать первым!</span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <?php } ?>
+    </div>
+</section>

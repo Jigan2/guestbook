@@ -1,0 +1,40 @@
+<?php defined('PHPSecurity') or exit('Access Invalid!'); ?>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><?php echo $output['html_title'];?></title>
+    <link rel="stylesheet" href="<?php echo TEMPLATES_URL;?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo TEMPLATES_URL;?>/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo TEMPLATES_URL;?>/css/style.css"/>
+
+    <script>var SITEURL = '<?php echo SITE_URL;?>';</script>
+    <script type="text/javascript" src="<?php echo SITE_URL;?>/data/resource/js/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo SITE_URL;?>/data/resource/js/dialog/dialog.js" id="dialog_js" charset="utf-8"></script>
+    <script type="text/javascript" src="<?php echo TEMPLATES_URL;?>/js/common.js"></script>
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div class="wrapper">
+    <header class="header">
+        <nav class="nav">
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item nav__item&#45;&#45;current"><a class="nav__link" href="/">Гостевая книга</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <?php require_once($tpl_file);?>
+    </div>
+    <footer class="footer">
+        <div class="footer__copyright">
+            &copy; Все права защищены <a class="footer__link" href="/">Site</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
